@@ -1,5 +1,6 @@
 package com.vytrack.pages;
 
+import com.vytrack.utilities.ConfigurationReader;
 import com.vytrack.utilities.Driver;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -20,10 +21,10 @@ public class LoginPage extends BasePage{
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    @FindBy(css = "#prependedInput") //this line will initialize web element
+    @FindBy(id = "prependedInput") //this line will initialize web element
     public WebElement userNameInput;
 
-    @FindBy(css = "#prependedInput2")//without findby, web element will be null
+    @FindBy(id = "prependedInput2")//without findby, web element will be null
     public WebElement passwordInput;
 
     @FindBy(id = "_submit")
@@ -46,4 +47,26 @@ public class LoginPage extends BasePage{
         passwordInput.sendKeys(password, Keys.ENTER);
     }
 
+    public void login(String role){
+        String userName="";
+        String password = ConfigurationReader.getProperty("password");
+        switch (role){
+            case "driver":
+                userName = ConfigurationReader.getProperty("driver.username");
+                break;
+            case "store.manager":
+                userName = ConfigurationReader.getProperty("store.manager.username");
+                break;
+            case "sales.manager":
+                userName = ConfigurationReader.getProperty("sales.manager.username");
+                break;
+            default:
+                throw  new RuntimeException("Invalid role");
+        }
+        login(userName, password);
+    }
+
+    public void login() {
+        login(ConfigurationReader.getProperty("user_name"), ConfigurationReader.getProperty("password"));
+    }
 }

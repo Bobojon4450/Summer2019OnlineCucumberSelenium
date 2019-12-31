@@ -53,8 +53,10 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M3</version>
                 <configuration>
+                    <runOrder>Alphabetical</runOrder><!--This helps run it in alphabetical order-->
                     <includes>
                         <include>**/CukesRunner.java</include><!--CucumberRunner-->
+                        <include>**/FailedRunner.java</include>
                     </includes>
                     <testFailureIgnore>true</testFailureIgnore>
                 </configuration>

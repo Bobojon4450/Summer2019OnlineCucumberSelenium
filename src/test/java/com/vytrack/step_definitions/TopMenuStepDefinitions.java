@@ -10,6 +10,6 @@ public class TopMenuStepDefinitions {
     /* And user navigates to "Dashboards" then to "Manage Dashboards"   */
     @When("user navigates to {string} then to {string}")
     public void user_navigates_to_then_to(String module, String submodule) {
-        loginPage.navigateTo(module,submodule);
+        loginPage.navigateTo(module, submodule);
     }
 }

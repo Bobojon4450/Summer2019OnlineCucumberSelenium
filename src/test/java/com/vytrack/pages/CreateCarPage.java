@@ -20,6 +20,15 @@ public class CreateCarPage extends BasePage {
     @FindBy(css = "[class='btn btn-success action-button']")
     public WebElement saveAndCloseButtonElement;
 
+    @FindBy(xpath = "//li//button[contains(text(),'Save and New')]")
+    public WebElement saveAndNew;
+
+    @FindBy(xpath = "//li//button[contains(text(),'Save and Close')]")
+    public WebElement saveAndCloseButtonFromMenuElement;
+
+    @FindBy(css = "div[class='btn-group pull-right'] > a[data-toggle='dropdown']")
+    public WebElement saveAndCloseToggle;
+
     @FindBy(css = "div[id*='FuelType']")
     public WebElement fuelTypeElement;
 
@@ -32,7 +41,6 @@ public class CreateCarPage extends BasePage {
 
     @FindBy(name = "custom_entity_type[Color]")
     public WebElement colorElement;
-
 
     /**
      * This method stands for selecting tags
@@ -47,8 +55,8 @@ public class CreateCarPage extends BasePage {
      * createCarPage.selectTags("Senior"); // Senior tag will be selected
      */
     public WebElement selectTags(String tagName) {
-        //locator for checkbox is based on label name
-        //label and checkbox are siblings
+        /* locator for checkbox is based on label name
+           label and checkbox are siblings */
         String locator = "//label[text()='" + tagName + "']/preceding-sibling::input[@type='checkbox']";
         WebElement checkBox = Driver.getDriver().findElement(By.xpath(locator));
         BrowserUtils.waitForVisibility(checkBox, 15);
@@ -86,5 +94,19 @@ public class CreateCarPage extends BasePage {
     public void uploadLogo(String pathToTheFile){
         BrowserUtils.waitForVisibility(logoElement, 15);
         logoElement.sendKeys(pathToTheFile);
+    }
+
+    public void clickSaveAndAddNew(){
+        waitUntilLoaderMaskDisappear();
+        BrowserUtils.clickWithWait(saveAndCloseToggle);
+        BrowserUtils.waitForVisibility(saveAndNew, 5);
+        BrowserUtils.clickWithWait(saveAndNew);
+    }
+
+    public void clickSaveAndClose(){
+        waitUntilLoaderMaskDisappear();
+        BrowserUtils.clickWithWait(saveAndCloseToggle);
+        BrowserUtils.waitForVisibility(saveAndCloseButtonFromMenuElement, 5);
+        BrowserUtils.clickWithWait(saveAndCloseButtonFromMenuElement);
     }
 }

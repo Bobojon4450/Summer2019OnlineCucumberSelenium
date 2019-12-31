@@ -181,8 +181,7 @@ public class BrowserUtils {
         List<String> listOfStrings = new ArrayList<>();
         for (WebElement element : listOfWebElements) {
             String value = element.getText().trim();
-            //if there is no text
-            //do not add this blank text into list
+            /* if there is no text, don't add this blank text into list */
             if (value.length() > 0) {
                 listOfStrings.add(value);
             }

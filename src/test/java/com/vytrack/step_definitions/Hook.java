@@ -25,7 +25,7 @@ public class Hook {
         }else {
             System.out.println("\tTest completed");
         }
-        Driver.getDriver().quit();
+        Driver.close();
     }
 
 }

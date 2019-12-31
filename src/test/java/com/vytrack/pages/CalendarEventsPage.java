@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class CalendarEventsPage extends BasePage{
+public class CalendarEventsPage extends BasePage {
 
     @FindBy(css = "[title='Create Calendar event']")
     public WebElement createCalendarEvent;
@@ -31,19 +31,17 @@ public class CalendarEventsPage extends BasePage{
         return BrowserUtils.getListOfString(columnNames);
     }
 
-    public List<String> getViewPerPageOptions(){
+    public List<String> getViewPerPageOptions() {
         BrowserUtils.waitForVisibility(viewPerPageToggle, 10);
         BrowserUtils.clickWithWait(viewPerPageToggle);
         return BrowserUtils.getListOfString(viewPerPageOptions);
     }
 
 
-
-
     //label[contains(text(),'View per page:')]/..//button
 
-   // button[class*='btn dropdown-toggle'] -> class* means class that has btn dropdown-toggle.
-   // This is used when class has spaces
+    // button[class*='btn dropdown-toggle'] -> class* means class that has btn dropdown-toggle.
+    // This is used when class has spaces
 
-   // [class*='btn-group'] [class='dropdown-menu pull-right'] li
+    // [class*='btn-group'] [class='dropdown-menu pull-right'] li
 }
