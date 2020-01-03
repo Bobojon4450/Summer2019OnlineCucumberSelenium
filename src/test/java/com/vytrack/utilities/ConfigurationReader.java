@@ -8,7 +8,7 @@ import java.util.Properties;
 //ConfigurationReader.getProperty("browser")
 
 public class ConfigurationReader {
-    /*  This class will be responsible for loading properties file and will provide access
+    /*  This class will be used for loading properties file and will provide access
         to values based on key names  */
     /*  We use Properties class to load custom .properties files */
     private static Properties configFile;

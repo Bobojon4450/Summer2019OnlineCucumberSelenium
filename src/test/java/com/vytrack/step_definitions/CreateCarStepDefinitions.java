@@ -34,7 +34,6 @@ public class CreateCarStepDefinitions {
             createCarPage.modelYearElement.sendKeys(map.get("Model Year"));
             createCarPage.colorElement.sendKeys(map.get("Color"));
             BrowserUtils.wait(2);//for demo
-
             if (row == mapList.size()) {
                 //if it's a last row - click save and close
                 createCarPage.clickSaveAndClose();
@@ -42,7 +41,6 @@ public class CreateCarStepDefinitions {
                 //if it's not the last row - click save and add new
                 createCarPage.clickSaveAndAddNew();
             }
-
             BrowserUtils.wait(2);//for demo
             row++;
         }

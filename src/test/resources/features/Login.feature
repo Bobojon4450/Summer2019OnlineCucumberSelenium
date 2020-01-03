@@ -38,29 +38,30 @@ Feature: Login
     And user verifies that "Invalid user name or password." message is displayed
 
   @driver_with_data_table
-  Scenario: Login as a driver(data table example)
+  Scenario: Login as a driver (Cucumber data-table example)
     Given user is on the login page
     Then user logs in as driver with following credentials
       | username | user160     |
       | password | UserUser123 |
     And user verifies the "Quick Launchpad" page subtitle is displayed
-
+# 1
   @login_with_role
   Scenario: Login as driver
     Given user is on the login page
     Then user logs in as "driver"
-
+# 2
   @login_with_role
   Scenario: Login as driver
     Given user is on the login page
     Then user logs in as "sales.manager"
-
+# 3
   @login_with_role
   Scenario: Login as driver
     Given user is on the login page
     Then user logs in as "store.manager"
 
-
+# here, "<role>", the test-data passed as a plain text
+#  This test includes all three(#1,#2,#3) tests in one as DDT.
   @login_with_role_ddt
   Scenario Outline: Login as <role>
     Given user is on the login page

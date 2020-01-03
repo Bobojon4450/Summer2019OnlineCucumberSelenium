@@ -28,15 +28,15 @@ public class LoginStepDefinitions {
     }
 
     @Then("user verifies the {string} page subtitle is displayed")
-    public void user_verifies_the_page_subtitle_is_displayed(String string) {
+    public void user_verifies_the_page_subtitle_is_displayed(String pageSubTitle) {
         loginPage.waitUntilLoaderMaskDisappear();
-        Assert.assertEquals(string, loginPage.pageSubTitle.getText()); /* expected vs actual */
+        Assert.assertEquals(pageSubTitle, loginPage.pageSubTitle.getText()); /* expected vs actual */
         Assert.assertTrue(loginPage.pageSubTitle.isDisplayed());
     }
 
     @Then("user logs in as driver")
     public void user_logs_in_as_driver() {
-        String driver_user_name = ConfigurationReader.getProperty("driver_user_name");
+        String driver_user_name = ConfigurationReader.getProperty("driver.username");
         String password = ConfigurationReader.getProperty("password");
         loginPage.waitUntilLoaderMaskDisappear();
         loginPage.login(driver_user_name, password);

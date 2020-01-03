@@ -7,5 +7,8 @@ Feature: Create a new car
     Then user navigates to "Fleet" then to "Vehicles"
     And user clicks on "Create Car" button
     Then user adds new car information:
-      | License Plate | Driver      | Location        | Model Year | Color |
-      | TestPlates    | Test Driver | Washington D.C. | 2020       | Black |
+      | License Plate | Driver       | Location        | Model Year | Color  |
+      | TestPlates    | Test Driver  | Washington D.C. | 2020       | Black  |
+      | SuperMan      | Cool Driver  | Texas           | 2019       | Red    |
+      | FAM           | SQUAD-Driver | VA              | 2016       | Grey   |
+      | Regular man   | Fire Fighter | Maryland        | 2000       | Silver |
