@@ -13,7 +13,9 @@ public class CreateCarStepDefinitions {
 
     @Then("user clicks on {string} button")
     public void user_clicks_on_button(String string) {
-        vehiclesPage.clickToCreateACar();
+        vehiclesPage.waitUntilLoaderMaskDisappear();
+        if(string.equals("Create Car"))
+            vehiclesPage.clickToCreateACar();
     }
 
 

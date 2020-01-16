@@ -17,4 +17,5 @@ public class CalendarEventStepDefinitions {
         System.out.println(calendarEventsPage.getColumnNames());
         Assert.assertEquals(calendarEventsPage.getColumnNames(), dataTable);
     }
+
 }

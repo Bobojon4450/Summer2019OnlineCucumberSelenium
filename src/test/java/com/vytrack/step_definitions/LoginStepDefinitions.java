@@ -7,6 +7,10 @@ import com.vytrack.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 
 import java.util.Map;
 
@@ -30,7 +34,7 @@ public class LoginStepDefinitions {
     @Then("user verifies the {string} page subtitle is displayed")
     public void user_verifies_the_page_subtitle_is_displayed(String pageSubTitle) {
         loginPage.waitUntilLoaderMaskDisappear();
-        Assert.assertEquals(pageSubTitle, loginPage.pageSubTitle.getText()); /* expected vs actual */
+        Assert.assertEquals(loginPage.pageSubTitle.getText(), pageSubTitle); /* expected vs actual */
         Assert.assertTrue(loginPage.pageSubTitle.isDisplayed());
     }
 
@@ -78,4 +82,22 @@ public class LoginStepDefinitions {
         BrowserUtils.waitForPageTitle(title);
         Assert.assertEquals("Title is incorrect", title, Driver.getDriver().getTitle());
     }
+
+/*    //document.getElements(By.name('full_name')[0].setAttribute('value','My name')
+    @Test()
+    public void test4() {
+        Driver.getDriver().get("http://practice.cybertekschool.com/sign_up");
+        WebElement name = Driver.getDriver().findElement(By.name("full_name"));
+        WebElement email = Driver.getDriver().findElement(By.name("email"));
+        WebElement submitButton=Driver.getDriver().findElement(By.name("wooden_spoon"));
+        BrowserUtils.wait(2);
+        JavascriptExecutor js = (JavascriptExecutor)Driver.getDriver();
+        //setAttribute is same as sendKeys
+        js.executeScript("arguments[0].setAttribute('value', 'John Doe')", name);
+        BrowserUtils.wait(2);
+        js.executeScript("arguments[0].setAttribute('value', 'Johnsemail@email.com')", email);
+        BrowserUtils.wait(2);
+        js.executeScript("arguments[0].click()", submitButton);
+        BrowserUtils.wait(2);
+    }*/
 }

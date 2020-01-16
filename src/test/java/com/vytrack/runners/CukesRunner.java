@@ -13,6 +13,7 @@ import org.junit.runner.RunWith;
         plugin = {"html:target/default-cucumber-reports",
                   "json:target/cucumber.json",
                   "rerun:target/rerun.txt"
+           /*       type: location       */
         }
 )
 
