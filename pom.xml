@@ -108,11 +108,12 @@
                             <includes>
                                 <include>**/RegressionRunner.java</include><!--RegressionRunner-->
                             </includes>
-                            <testFailureIgnore>true</testFailureIgnore>
+                            <testFailureIgnore>false</testFailureIgnore>
                         </configuration>
                     </plugin>
-
-                    <plugin>
+                    <!--We don't need this plugin here since CICD to has its own reporting ability,
+                    in the post-build stage cucumber reporting tool -->
+                    <!--<plugin>
                         <groupId>net.masterthought</groupId>
                         <artifactId>maven-cucumber-reporting</artifactId>
                         <version>4.9.0</version>
@@ -133,7 +134,7 @@
                                 </configuration>
                             </execution>
                         </executions>
-                    </plugin>
+                    </plugin>-->
                 </plugins>
             </build>
         </profile>
