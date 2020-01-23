@@ -65,7 +65,7 @@
                         <include>**/CukesRunner.java</include><!--CucumberRunner-->
                         <include>**/FailedRunner.java</include>
                     </includes>
-                    <testFailureIgnore>true</testFailureIgnore>
+                    <testFailureIgnore>false</testFailureIgnore>
                 </configuration>
             </plugin>
             <plugin>
@@ -111,6 +111,7 @@
                             <testFailureIgnore>true</testFailureIgnore>
                         </configuration>
                     </plugin>
+
                     <plugin>
                         <groupId>net.masterthought</groupId>
                         <artifactId>maven-cucumber-reporting</artifactId>

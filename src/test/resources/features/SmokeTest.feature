@@ -4,7 +4,7 @@ Feature: Smoke Test
   Background: open login page and login as store manager
     Given user is on the login page
     Then user logs in as store manager
-
+  @driver
   Scenario: Verify dashboard page
     And user verifies the "Dashboard" page subtitle is displayed
 

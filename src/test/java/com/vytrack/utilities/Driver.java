@@ -161,7 +161,7 @@ public class Driver {
                                 chromeOptions));
                     } catch (Exception e) {
                         e.printStackTrace();
-                    }//http://ec2-54-166-190-92.compute-1.amazonaws.com
+                    }//http://ec2-54-166-190-92.compute-1.amazonaws.com:4444/wd/hub
                     break;
                 case "remote_firefox":
                     try {
