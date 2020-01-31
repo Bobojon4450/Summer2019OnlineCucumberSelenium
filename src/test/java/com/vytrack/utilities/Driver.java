@@ -94,6 +94,8 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.BrowserType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
@@ -169,10 +171,9 @@ public class Driver {
                     break;
                 case "remote_firefox":
                     try {
-                        FirefoxOptions firefoxOptions = new FirefoxOptions();
-                        firefoxOptions.setCapability("platform", Platform.ANY);
-                        /*driverPool.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), firefoxOptions));*/
-                        driverPool.set(new RemoteWebDriver(new URL("http://ec2-3-95-21-133.compute-1.amazonaws.com:4444/wd/hub"), firefoxOptions));
+                        DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+                        desiredCapabilities.setBrowserName(BrowserType.FIREFOX);
+                        driverPool.set(new RemoteWebDriver(new URL("http://ec2-3-95-21-133.compute-1.amazonaws.com:4444/wd/hub"), desiredCapabilities));
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -192,3 +193,13 @@ public class Driver {
 
 //http://ec2-18-212-156-23.compute-1.amazonaws.com/4444/wd/hub
 //http://ec2-54-166-190-92.compute-1.amazonaws.com:4444/wd/hub
+//http://ec2-18-212-156-23.compute-1.amazonaws.com:4444/wd/hub
+
+/*try {
+        FirefoxOptions firefoxOptions = new FirefoxOptions();
+        firefoxOptions.setCapability("platform", Platform.ANY);
+        *//*driverPool.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), firefoxOptions));*//*
+        driverPool.set(new RemoteWebDriver(new URL("http://ec2-3-95-21-133.compute-1.amazonaws.com:4444/wd/hub"), firefoxOptions));
+        } catch (Exception e) {
+        e.printStackTrace();
+    */    }
