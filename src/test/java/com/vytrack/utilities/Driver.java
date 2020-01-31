@@ -202,4 +202,5 @@ public class Driver {
         driverPool.set(new RemoteWebDriver(new URL("http://ec2-3-95-21-133.compute-1.amazonaws.com:4444/wd/hub"), firefoxOptions));
         } catch (Exception e) {
         e.printStackTrace();
-    */    }
+        }
+*/
