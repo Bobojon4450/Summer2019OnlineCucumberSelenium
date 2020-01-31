@@ -171,9 +171,9 @@ public class Driver {
                     break;
                 case "remote_firefox":
                     try {
-                        FirefoxOptions firefoxOptions = new FirefoxOptions();
-                        firefoxOptions.setCapability("platform", Platform.ANY);
-                        driverPool.set(new RemoteWebDriver(new URL("http://ec2-3-95-21-133.compute-1.amazonaws.com:4444/wd/hub"), firefoxOptions));
+                        DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+                        desiredCapabilities.setBrowserName(BrowserType.FIREFOX);
+                        driverPool.set(new RemoteWebDriver(new URL("http://ec2-3-95-21-133.compute-1.amazonaws.com:4444/wd/hub"), desiredCapabilities));
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -200,6 +200,14 @@ public class Driver {
         firefoxOptions.setCapability("platform", Platform.ANY);
         *//*driverPool.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), firefoxOptions));*//*
         driverPool.set(new RemoteWebDriver(new URL("http://ec2-3-95-21-133.compute-1.amazonaws.com:4444/wd/hub"), firefoxOptions));
+        } catch (Exception e) {
+        e.printStackTrace();
+        }
+*/
+
+ /*     FirefoxOptions firefoxOptions = new FirefoxOptions();
+                        firefoxOptions.setCapability("platform", Platform.ANY);
+                        driverPool.set(new RemoteWebDriver(new URL("http://ec2-3-95-21-133.compute-1.amazonaws.com:4444/wd/hub"), firefoxOptions));
         } catch (Exception e) {
         e.printStackTrace();
         }
