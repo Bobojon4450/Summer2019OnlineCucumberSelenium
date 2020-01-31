@@ -102,8 +102,12 @@ import java.net.URL;
 
 public class Driver {
 
+    /**  These variables differ from their normal counterparts in that each thread
+     *   that accesses one (via its get() or set() method) has its own, independently
+     *   initialized copy of the variable (driver in our case).     */
     private static ThreadLocal<WebDriver> driverPool = new ThreadLocal<>();
 
+    /* This makes the class singleton */
     private Driver() {
     }
 
@@ -156,9 +160,9 @@ public class Driver {
                     try {
                         ChromeOptions chromeOptions = new ChromeOptions();
                         chromeOptions.setCapability("platform", Platform.ANY);
-                        /*driverPool.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), chromeOptions));*/
-                        driverPool.set(new RemoteWebDriver(new URL("http://ec2-3-95-21-133.compute-1.amazonaws.com:4444/wd/hub"),
-                                chromeOptions));
+                        driverPool.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), chromeOptions));
+//                        driverPool.set(new RemoteWebDriver(new URL("http://ec2-3-95-21-133.compute-1.amazonaws.com:4444/wd/hub"),
+//                                chromeOptions));
                     } catch (Exception e) {
                         e.printStackTrace();
                     }//http://ec2-54-166-190-92.compute-1.amazonaws.com:4444/wd/hub
@@ -183,4 +187,5 @@ public class Driver {
         driverPool.get().quit();
         driverPool.remove();
     }
+
 }

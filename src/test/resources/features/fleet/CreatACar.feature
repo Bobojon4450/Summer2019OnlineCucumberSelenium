@@ -1,6 +1,6 @@
-@create_new_car
 Feature: Create a new car
 
+  @create_new_car
   Scenario: Verify column names
     Given user is on the login page
     And user logs in as store manager
