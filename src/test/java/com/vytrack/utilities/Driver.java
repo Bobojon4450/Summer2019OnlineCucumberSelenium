@@ -165,7 +165,7 @@ public class Driver {
                                 chromeOptions));
                     } catch (Exception e) {
                         e.printStackTrace();
-                    }//http://ec2-54-166-190-92.compute-1.amazonaws.com:4444/wd/hub
+                    }
                     break;
                 case "remote_firefox":
                     try {
@@ -173,7 +173,7 @@ public class Driver {
                         firefoxOptions.setCapability("platform", Platform.ANY);
                         /*driverPool.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), firefoxOptions));*/
                         driverPool.set(new RemoteWebDriver(new URL("http://ec2-3-95-21-133.compute-1.amazonaws.com:4444/wd/hub"), firefoxOptions));
-                    } catch (Exception e) { //http://ec2-18-212-156-23.compute-1.amazonaws.com/4444/wd/hub
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
                     break;
@@ -189,3 +189,6 @@ public class Driver {
     }
 
 }
+
+//http://ec2-18-212-156-23.compute-1.amazonaws.com/4444/wd/hub
+//http://ec2-54-166-190-92.compute-1.amazonaws.com:4444/wd/hub
