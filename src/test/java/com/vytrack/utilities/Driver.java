@@ -172,8 +172,8 @@ public class Driver {
                         FirefoxOptions firefoxOptions = new FirefoxOptions();
                         firefoxOptions.setCapability("platform", Platform.ANY);
                         /*driverPool.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), firefoxOptions));*/
-                        driverPool.set(new RemoteWebDriver(new URL("http://ec2-18-212-156-23.compute-1.amazonaws.com/4444/wd/hub"), firefoxOptions));
-                    } catch (Exception e) {
+                        driverPool.set(new RemoteWebDriver(new URL("http://ec2-3-95-21-133.compute-1.amazonaws.com:4444/wd/hub"), firefoxOptions));
+                    } catch (Exception e) { //http://ec2-18-212-156-23.compute-1.amazonaws.com/4444/wd/hub
                         e.printStackTrace();
                     }
                     break;
