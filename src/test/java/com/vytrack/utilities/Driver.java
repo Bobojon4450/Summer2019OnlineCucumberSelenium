@@ -163,7 +163,7 @@ public class Driver {
                         ChromeOptions chromeOptions = new ChromeOptions();
                         chromeOptions.setCapability("platform", Platform.ANY);
                         /*driverPool.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), chromeOptions));*/
-                        driverPool.set(new RemoteWebDriver(new URL("http://ec2-3-95-21-133.compute-1.amazonaws.com:4444/wd/hub"),
+                        driverPool.set(new RemoteWebDriver(new URL("ec2-3-91-88-86.compute-1.amazonaws.com:4444/wd/hub"),
                                 chromeOptions));
                     } catch (Exception e) {
                         e.printStackTrace();
